@@ -13,6 +13,7 @@ export type TarefaProps = {
   realizada: boolean;
   dataCriacao: string | Date; // pode vir como string do backend
   titulo: string;
+  dataAtualizacao: string
 };
 
 export const listarTarefas = () => api.get("/tarefas/listar");
@@ -25,5 +26,6 @@ export const realizarTarefa = (id: number) => api.put(`/tarefas/realizar/${id}`)
 
 export const atualizarOrdemTarefa = (id: number, posicao: number) => api.put(`/tarefas/atualizarOrdem/${id}/${posicao}`);
 
+export const editarTarefa = (id: number, novoTitulo: string) => api.put(`/tarefas/editar/${id}`, {titulo: novoTitulo});
 
 export default api;
